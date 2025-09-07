@@ -1,87 +1,113 @@
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --primary: #0077cc;
+  --primary-hover: #005fa3;
+  --accent: #ff6f61;
+  --bg: #f0f2f5;
+  --text: #333;
+  --duration: 0.4s;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+  font-family: system-ui, sans-serif;
+  margin: 0;
   padding: 2rem;
-  color: #333;
+  background: var(--bg);
+  color: var(--text);
+}
+
+main {
+  max-width: 700px;
+  margin: auto;
   text-align: center;
 }
 
-/* Part 1: Button Hover */
-.btn-hover {
-  background-color: #0078d4;
+.demo-section {
+  margin: 2rem 0;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  margin: 1rem;
+  background-color: var(--primary);
   color: white;
-  padding: 1rem 2rem;
   border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color var(--duration) var(--ease);
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.btn:active {
+  animation: pulse 0.3s ease;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  margin: 2rem auto;
+  background-color: var(--accent);
+  transition: transform var(--duration) var(--ease);
+  will-change: transform;
+}
+
+.box.animate {
+  transform: rotate(360deg) scale(1.2);
+}
+
+.modal {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: white;
+  padding: 2rem;
   border-radius: 8px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-.btn-hover:hover {
-  background-color: #005a9e;
-  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration) var(--ease), transform var(--duration) var(--ease);
 }
 
-/* Part 1: Keyframe Animation */
-.pulse-box {
-  width: 100px;
-  height: 100px;
-  margin: 2rem auto;
-  background-color: #ff6f61;
-  animation: pulse 2s infinite ease-in-out;
+.modal.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
 }
+
+.hidden {
+  display: none;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  margin: 1rem auto;
+  border: 4px solid #ccc;
+  border-top: 4px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 @keyframes pulse {
-  0% { transform: scale(1); opacity: 0.6; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.6; }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
-/* Part 3: JS-triggered Animation */
-.animated-box {
-  width: 100px;
-  height: 100px;
-  margin: 2rem auto;
-  background-color: #2ecc71;
-  transition: transform 0.5s ease;
-}
-.animated-box.active {
-  transform: rotate(360deg) scale(1.3);
-}
-
-/* Part 3: Card Flip */
-.card {
-  width: 150px;
-  height: 200px;
-  margin: 2rem auto;
-  perspective: 1000px;
-  position: relative;
-}
-.card-face {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  backface-visibility: hidden;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  transition: transform 0.6s ease;
-}
-.front {
-  background-color: #f1c40f;
-}
-.back {
-  background-color: #9b59b6;
-  transform: rotateY(180deg);
-}
-.card.flipped .front {
-  transform: rotateY(180deg);
-}
-.card.flipped .back {
-  transform: rotateY(360deg);
+.reduce-motion * {
+  animation: none !important;
+  transition: none !important;
 }
