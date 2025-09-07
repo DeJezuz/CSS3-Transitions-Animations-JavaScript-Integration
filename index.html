@@ -3,39 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Global Dev Hackathon UI</title>
+  <title>Interactive UI System</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>🌍 Hackathon Interactive Showcase</h1>
-  </header>
-
   <main>
-    <!-- Part 1: CSS-only Animation -->
-    <section class="css-demo">
-      <button class="btn-hover">Hover Me</button>
-      <div class="pulse-box"></div>
+    <h1>Interactive UI System</h1>
+
+    <!-- Box Animation -->
+    <section class="demo-section">
+      <button id="animateBtn" class="btn" aria-controls="box">Animate Box</button>
+      <div id="box" class="box" role="presentation"></div>
     </section>
 
-    <!-- Part 2: JS Functions -->
-    <section class="js-demo">
-      <button id="triggerAnimation">Trigger Animation</button>
-      <div id="animatedBox" class="animated-box"></div>
-    </section>
-
-    <!-- Part 3: Combined CSS + JS -->
-    <section class="interactive-demo">
-      <div class="card" id="flipCard">
-        <div class="card-face front">Front</div>
-        <div class="card-face back">Back</div>
+    <!-- Modal -->
+    <section class="demo-section">
+      <button id="modalBtn" class="btn" aria-haspopup="dialog" aria-controls="modal">Open Modal</button>
+      <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true" tabindex="-1">
+        <h2 id="modalTitle">Modal Popup</h2>
+        <p>This is a modal popup!</p>
+        <button id="closeModal" class="btn">Close</button>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <p>Built with love by the world’s finest devs 💻</p>
-  </footer>
+    <!-- Loader -->
+    <section class="demo-section">
+      <button id="loaderBtn" class="btn" aria-controls="loader">Toggle Loader</button>
+      <div id="loader" class="loader hidden" role="status" aria-live="polite"></div>
+    </section>
+
+    <!-- Motion Toggle -->
+    <section class="demo-section">
+      <label>
+        <input type="checkbox" id="motionToggle" />
+        Reduce Motion
+      </label>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
