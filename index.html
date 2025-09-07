@@ -3,30 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interactive UI Demo | CSS3 + JS</title>
+  <title>CSS & JS Interactive Experience</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main>
-    <h1>Interactive UI Demo</h1>
+  <h1>Interactive Elements</h1>
 
-    <section class="controls">
-      <button id="animateBtn">Animate Box</button>
-      <button id="openModalBtn">Open Modal</button>
-    </section>
+  <!-- Part 1: CSS Animation Trigger -->
+  <button id="hoverBtn">Hover Me</button>
+  <div class="fade-box"></div>
 
-    <section class="visuals">
-      <div id="animatedBox" class="box"></div>
-    </section>
+  <!-- Part 3: JS-triggered Animation -->
+  <button id="animateBtn">Animate Box</button>
+  <div id="animatedBox" class="box"></div>
 
-    <section id="modal" class="modal hidden" role="dialog" aria-modal="true">
-      <div class="modal-content">
-        <button id="closeModalBtn" class="close" aria-label="Close modal">&times;</button>
-        <p>This is a modal popup!</p>
-      </div>
-    </section>
-  </main>
+  <!-- Part 3: Card Flip -->
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-face front">Front</div>
+    <div class="card-face back">Back</div>
+  </div>
 
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
