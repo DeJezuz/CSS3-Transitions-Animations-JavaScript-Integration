@@ -3,25 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CSS & JS Interactive Experience</title>
+  <title>Global Dev Hackathon UI</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Interactive Elements</h1>
+  <header>
+    <h1>🌍 Hackathon Interactive Showcase</h1>
+  </header>
 
-  <!-- Part 1: CSS Animation Trigger -->
-  <button id="hoverBtn">Hover Me</button>
-  <div class="fade-box"></div>
+  <main>
+    <!-- Part 1: CSS-only Animation -->
+    <section class="css-demo">
+      <button class="btn-hover">Hover Me</button>
+      <div class="pulse-box"></div>
+    </section>
 
-  <!-- Part 3: JS-triggered Animation -->
-  <button id="animateBtn">Animate Box</button>
-  <div id="animatedBox" class="box"></div>
+    <!-- Part 2: JS Functions -->
+    <section class="js-demo">
+      <button id="triggerAnimation">Trigger Animation</button>
+      <div id="animatedBox" class="animated-box"></div>
+    </section>
 
-  <!-- Part 3: Card Flip -->
-  <div class="card" onclick="flipCard(this)">
-    <div class="card-face front">Front</div>
-    <div class="card-face back">Back</div>
-  </div>
+    <!-- Part 3: Combined CSS + JS -->
+    <section class="interactive-demo">
+      <div class="card" id="flipCard">
+        <div class="card-face front">Front</div>
+        <div class="card-face back">Back</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built with love by the world’s finest devs 💻</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
