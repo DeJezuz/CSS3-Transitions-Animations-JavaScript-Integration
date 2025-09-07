@@ -1,12 +1,12 @@
-// Global variable
+// Global state variable
 let isAnimating = false;
 
 // Function with parameters and return value
 function calculateScale(base, factor) {
-  return base * factor;
+  return base * factor; // Returns scaled value
 }
 
-// Function to toggle animation class
+// Function to toggle a class on an element
 function toggleClass(elementId, className) {
   const element = document.getElementById(elementId);
   element.classList.toggle(className);
@@ -16,25 +16,27 @@ function toggleClass(elementId, className) {
 document.getElementById("animateBtn").addEventListener("click", () => {
   toggleClass("animatedBox", "animate");
   isAnimating = !isAnimating;
-  console.log("Animation triggered:", isAnimating);
+  console.log("Box animation toggled:", isAnimating);
 });
 
 // Modal logic
-const modal = document.getElementById("modal");
-const openBtn = document.getElementById("openModalBtn");
-const closeBtn = document.getElementById("closeModalBtn");
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("modal");
+  const openBtn = document.getElementById("openModalBtn");
+  const closeBtn = document.getElementById("closeModalBtn");
 
-function showModal() {
-  let modalVisible = true;
-  modal.classList.remove("hidden");
-  console.log("Modal visible:", modalVisible);
-}
+  // Show modal
+  function showModal() {
+    modal.classList.remove("hidden");
+    console.log("Modal opened");
+  }
 
-function hideModal() {
-  let modalVisible = false;
-  modal.classList.add("hidden");
-  console.log("Modal visible:", modalVisible);
-}
+  // Hide modal
+  function hideModal() {
+    modal.classList.add("hidden");
+    console.log("Modal closed");
+  }
 
-openBtn.addEventListener("click", showModal);
-closeBtn.addEventListener("click", hideModal);
+  openBtn.addEventListener("click", showModal);
+  closeBtn.addEventListener("click", hideModal);
+});
