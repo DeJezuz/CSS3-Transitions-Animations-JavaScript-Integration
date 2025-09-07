@@ -1,50 +1,23 @@
-// Global state
-let isAnimating = false;
-
-/**
- * Calculates a scaled value.
- * @param {number} base - The base value.
- * @param {number} factor - The scaling factor.
- * @returns {number} - The scaled result.
- */
-function calculateScale(base, factor) {
-  return base * factor;
+// Part 2: Function with parameters and return value
+function calculateArea(width, height) {
+  return width * height;
 }
 
-/**
- * Toggles a CSS class on a given element.
- * @param {string} elementId - The ID of the target element.
- * @param {string} className - The class to toggle.
- */
-function toggleClass(elementId, className) {
-  const element = document.getElementById(elementId);
-  if (element) {
-    element.classList.toggle(className);
-  }
+// Part 2: Scope demonstration
+let globalColor = 'blue';
+
+function changeColor(newColor) {
+  let localColor = newColor;
+  return localColor;
 }
 
-// DOM ready
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("modal");
-  const openBtn = document.getElementById("openModalBtn");
-  const closeBtn = document.getElementById("closeModalBtn");
-  const animateBtn = document.getElementById("animateBtn");
-
-  // Animate box
-  animateBtn.addEventListener("click", () => {
-    toggleClass("animatedBox", "animate");
-    isAnimating = !isAnimating;
-    console.log("Box animation:", isAnimating ? "active" : "inactive");
-  });
-
-  // Modal controls
-  openBtn.addEventListener("click", () => {
-    modal.classList.remove("hidden");
-    console.log("Modal opened");
-  });
-
-  closeBtn.addEventListener("click", () => {
-    modal.classList.add("hidden");
-    console.log("Modal closed");
-  });
+// Part 3: Trigger animation with JS
+document.getElementById('animateBtn').addEventListener('click', () => {
+  const box = document.getElementById('animatedBox');
+  box.classList.toggle('animate');
 });
+
+// Part 3: Card flip function
+function flipCard(cardElement) {
+  cardElement.classList.toggle('flipped');
+}
