@@ -3,29 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interactive Animation Demo</title>
+  <title>Interactive UI Demo | CSS3 + JS</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Interactive Animation Demo</h1>
+  <main>
+    <h1>Interactive UI Demo</h1>
 
-  <!-- Button to trigger box animation -->
-  <button id="animateBtn">Animate Box</button>
+    <section class="controls">
+      <button id="animateBtn">Animate Box</button>
+      <button id="openModalBtn">Open Modal</button>
+    </section>
 
-  <!-- Box that will be animated -->
-  <div id="animatedBox"></div>
+    <section class="visuals">
+      <div id="animatedBox" class="box"></div>
+    </section>
 
-  <!-- Button to open modal -->
-  <button id="openModalBtn">Open Modal</button>
+    <section id="modal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal-content">
+        <button id="closeModalBtn" class="close" aria-label="Close modal">&times;</button>
+        <p>This is a modal popup!</p>
+      </div>
+    </section>
+  </main>
 
-  <!-- Modal structure -->
-  <div id="modal" class="hidden">
-    <div class="modal-content">
-      <span id="closeModalBtn" class="close">&times;</span>
-      <p>This is a modal popup!</p>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
