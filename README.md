@@ -1,24 +1,31 @@
-# 🎬 CSS3 Transitions & Animations + JavaScript Integration
+# 🎬 Interactive UI Demo — CSS3 Transitions & JavaScript Integration
 
-## 📌 Overview
+## 📌 Project Overview
 
-This project demonstrates:
-- CSS3 transitions and keyframe animations
-- JavaScript functions with scope, parameters, and return values
-- DOM manipulation and animation triggers
+This project demonstrates the integration of CSS3 transitions, keyframe animations, and scoped JavaScript logic to create a responsive, interactive user interface.
 
-## 📁 Files
+### 🔧 Technologies Used
 
-- `index.html` — Structured content and interactive elements
-- `styles.css` — Transitions, keyframes, and modal styling
-- `script.js` — Functional logic with comments
+- HTML5 (semantic structure)
+- CSS3 (transitions, keyframes, modal styling)
+- JavaScript (DOM manipulation, scoped functions, event handling)
+
+---
+
+## 🧠 Features
+
+| Feature                     | Description                                                  |
+|----------------------------|--------------------------------------------------------------|
+| CSS Transitions            | Smooth hover and transform effects                           |
+| Keyframe Animations        | Modal fade-in and scale-up transitions                       |
+| JavaScript Functions       | Scoped logic with parameters and return values               |
+| DOM Manipulation           | Class toggling, modal control, and animation triggers        |
+| Accessibility              | ARIA roles and labels for modal interaction                  |
+
+---
 
 ## 🚀 How to Run
 
-1. Clone or download the repository
-2. Open `index.html` in any browser
-3. Click buttons to trigger animations and modal popup
-
-## ✅ Submission
-
-This repository is submitted for the July 2025 CSS3 Transitions & Animations assignment.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/dejezus/july-2025-css3-transitions-animations-DeJezuz.git
