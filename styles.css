@@ -1,92 +1,78 @@
-/* Base layout */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f9f9f9;
-  margin: 0;
-  padding: 2rem;
-  text-align: center;
-}
-
-main {
-  max-width: 600px;
-  margin: auto;
-}
-
-button {
-  padding: 0.75rem 1.5rem;
-  margin: 1rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #0056b3;
+/* Part 1: Button Hover Effect */
+#hoverBtn {
+  padding: 10px 20px;
+  background-color: #3498db;
   color: white;
-  cursor: pointer;
+  border: none;
   transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #007bff;
+#hoverBtn:hover {
+  background-color: #2980b9;
 }
 
-/* Animated box */
-.box {
+/* Part 1: Fade Box Animation */
+.fade-box {
   width: 100px;
   height: 100px;
-  margin: 2rem auto;
-  background-color: #ff7043;
-  transition: transform 0.5s ease;
+  background-color: #e74c3c;
+  animation: fadeIn 2s infinite alternate;
 }
 
-.animate {
-  transform: scale(1.5) rotate(45deg);
-}
-
-/* Modal styling */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: fadeIn 0.4s ease forwards;
-  z-index: 1000;
-}
-
-.hidden {
-  display: none;
-}
-
-.modal-content {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 8px;
-  width: 300px;
-  text-align: center;
-  animation: scaleUp 0.3s ease forwards;
-  position: relative;
-}
-
-.close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* Keyframes */
 @keyframes fadeIn {
-  from { opacity: 0; }
+  from { opacity: 0.2; }
   to { opacity: 1; }
 }
 
-@keyframes scaleUp {
-  from { transform: scale(0.8); }
-  to { transform: scale(1); }
+/* Part 3: JS-triggered Box */
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: #2ecc71;
+  margin-top: 20px;
+  transition: transform 0.5s ease;
+}
+
+.box.animate {
+  transform: scale(1.5) rotate(45deg);
+}
+
+/* Part 3: Card Flip */
+.card {
+  width: 150px;
+  height: 200px;
+  perspective: 1000px;
+  position: relative;
+  margin-top: 20px;
+}
+
+.card-face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.6s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.front {
+  background-color: #f1c40f;
+}
+
+.back {
+  background-color: #9b59b6;
+  transform: rotateY(180deg);
+}
+
+.card.flipped .front {
+  transform: rotateY(180deg);
+}
+
+.card.flipped .back {
+  transform: rotateY(360deg);
 }
