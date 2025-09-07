@@ -1,42 +1,50 @@
-// Global state variable
+// Global state
 let isAnimating = false;
 
-// Function with parameters and return value
+/**
+ * Calculates a scaled value.
+ * @param {number} base - The base value.
+ * @param {number} factor - The scaling factor.
+ * @returns {number} - The scaled result.
+ */
 function calculateScale(base, factor) {
-  return base * factor; // Returns scaled value
+  return base * factor;
 }
 
-// Function to toggle a class on an element
+/**
+ * Toggles a CSS class on a given element.
+ * @param {string} elementId - The ID of the target element.
+ * @param {string} className - The class to toggle.
+ */
 function toggleClass(elementId, className) {
   const element = document.getElementById(elementId);
-  element.classList.toggle(className);
+  if (element) {
+    element.classList.toggle(className);
+  }
 }
 
-// Animate box on button click
-document.getElementById("animateBtn").addEventListener("click", () => {
-  toggleClass("animatedBox", "animate");
-  isAnimating = !isAnimating;
-  console.log("Box animation toggled:", isAnimating);
-});
-
-// Modal logic
+// DOM ready
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("modal");
   const openBtn = document.getElementById("openModalBtn");
   const closeBtn = document.getElementById("closeModalBtn");
+  const animateBtn = document.getElementById("animateBtn");
 
-  // Show modal
-  function showModal() {
+  // Animate box
+  animateBtn.addEventListener("click", () => {
+    toggleClass("animatedBox", "animate");
+    isAnimating = !isAnimating;
+    console.log("Box animation:", isAnimating ? "active" : "inactive");
+  });
+
+  // Modal controls
+  openBtn.addEventListener("click", () => {
     modal.classList.remove("hidden");
     console.log("Modal opened");
-  }
+  });
 
-  // Hide modal
-  function hideModal() {
+  closeBtn.addEventListener("click", () => {
     modal.classList.add("hidden");
     console.log("Modal closed");
-  }
-
-  openBtn.addEventListener("click", showModal);
-  closeBtn.addEventListener("click", hideModal);
+  });
 });
