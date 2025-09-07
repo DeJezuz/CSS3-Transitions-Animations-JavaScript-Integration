@@ -1,13 +1,17 @@
+/* General layout */
 body {
   font-family: Arial, sans-serif;
   text-align: center;
   padding: 2rem;
+  background-color: #f0f0f0;
 }
 
+/* Button styling */
 button {
   padding: 10px 20px;
   margin: 1rem;
   font-size: 16px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
@@ -16,6 +20,7 @@ button:hover {
   color: white;
 }
 
+/* Animated box */
 #animatedBox {
   width: 100px;
   height: 100px;
@@ -24,10 +29,12 @@ button:hover {
   transition: transform 0.5s ease;
 }
 
+/* Animation class */
 .animate {
   transform: scale(1.5) rotate(45deg);
 }
 
+/* Modal styling */
 #modal {
   position: fixed;
   top: 0;
@@ -39,6 +46,7 @@ button:hover {
   justify-content: center;
   align-items: center;
   animation: fadeIn 0.5s ease forwards;
+  z-index: 1000;
 }
 
 .hidden {
@@ -51,8 +59,21 @@ button:hover {
   border-radius: 8px;
   transform: scale(0.8);
   animation: scaleUp 0.3s ease forwards;
+  position: relative;
+  width: 300px;
+  text-align: center;
 }
 
+/* Close button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Keyframe animations */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
