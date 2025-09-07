@@ -37,10 +37,11 @@ This project demonstrates how to bring static web pages to life using **CSS3 ani
 
 ## 📁 File Structure
 📦 interactive-ui-system/
-├── index.html         # Main HTML file with semantic structure and ARIA roles
-├── styles.css         # CSS3 transitions, keyframes, and responsive styling
+├── index.html         # Semantic HTML structure with ARIA roles
+├── styles.css         # CSS transitions, keyframes, and responsive styling
 ├── script.js          # JavaScript logic: functions, scope, DOM interaction
-├── README.md          # Project overview, features, instructions, and credits
+├── README.md          # Project documentation and overview
+
 ---
 
 ## ♿ Accessibility Highlights
