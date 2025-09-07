@@ -1,27 +1,79 @@
-// Global state
-let animationActive = false;
+class AnimationController {
+  toggle(element, className) {
+    if (element) element.classList.toggle(className);
+  }
 
-// Part 2: Function with parameters and return value
-function calculateScale(base, factor) {
-  return base * factor;
+  show(element, className = 'show') {
+    if (element) {
+      element.classList.remove('hidden');
+      element.classList.add(className);
+      element.setAttribute('aria-hidden', 'false');
+      this.trapFocus(element);
+    }
+  }
+
+  hide(element, className = 'show') {
+    if (element) {
+      element.classList.remove(className);
+      element.classList.add('hidden');
+      element.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  calculateDelay(index, base = 100) {
+    return index * base;
+  }
+
+  trapFocus(modal) {
+    const focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    modal.addEventListener('keydown', e => {
+      if (e.key === 'Tab') {
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      }
+    });
+
+    first?.focus();
+  }
 }
 
-// Part 2: Scope demonstration
-const globalTheme = 'light';
-function getThemePreference(userSetting) {
-  let localTheme = userSetting || globalTheme;
-  return localTheme;
-}
+const animator = new AnimationController();
 
-// Part 3: Trigger animation
-document.getElementById('triggerAnimation').addEventListener('click', () => {
-  const box = document.getElementById('animatedBox');
-  animationActive = !animationActive;
-  box.classList.toggle('active', animationActive);
+document.getElementById('animateBtn').addEventListener('click', () => {
+  animator.toggle(document.getElementById('box'), 'animate');
 });
 
-// Part 3: Card flip
-document.getElementById('flipCard').addEventListener('click', () => {
-  const card = document.getElementById('flipCard');
-  card.classList.toggle('flipped');
+document.getElementById('modalBtn').addEventListener('click', () => {
+  animator.show(document.getElementById('modal'));
 });
+
+document.getElementById('closeModal').addEventListener('click', () => {
+  animator.hide(document.getElementById('modal'));
+});
+
+document.getElementById('loaderBtn').addEventListener('click', () => {
+  animator.toggle(document.getElementById('loader'), 'hidden');
+});
+
+document.getElementById('motionToggle').addEventListener('change', e => {
+  document.body.classList.toggle('reduce-motion', e.target.checked);
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    animator.hide(document.getElementById('modal'));
+  }
+});
+
+(function scopeDemo() {
+  const localMessage = "Scoped locally!";
+  console.log(localMessage);
+})();
+
+console.log("Delay for item 4:", animator.calculateDelay(4));
